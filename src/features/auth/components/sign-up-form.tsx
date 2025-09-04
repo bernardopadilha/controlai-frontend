@@ -11,8 +11,10 @@ import {
 import { Input } from '@/components/ui/input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { EyeIcon, EyeOffIcon, Loader2Icon, MoveRight } from 'lucide-react'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+import { useSignUp } from '../api/use-sign-up'
 import { type SignUpSchemaProps, signUpSchema } from '../schema'
 
 export function SignUpForm() {
@@ -22,11 +24,25 @@ export function SignUpForm() {
     resolver: zodResolver(signUpSchema),
   })
 
-  function OnSubmit(data: SignUpSchemaProps) {
-    console.log(data)
-  }
+  const { mutate, isPending } = useSignUp({
+    reset: form.reset,
+  })
 
-  const isPending = false
+  const OnSubmit = useCallback(
+    ({ name, email, password, confirmPassword }: SignUpSchemaProps) => {
+      toast.loading('Entrando na sua conta', {
+        id: 'sign-up',
+      })
+
+      mutate({
+        name,
+        email,
+        password,
+        confirmPassword,
+      })
+    },
+    [mutate],
+  )
 
   return (
     <Form {...form}>
