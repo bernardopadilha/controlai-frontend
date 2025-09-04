@@ -11,8 +11,10 @@ import {
 import { Input } from '@/components/ui/input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { EyeIcon, EyeOffIcon, Loader2Icon, MoveRight } from 'lucide-react'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+import { useSignIn } from '../api/use-sign-in'
 import { signInSchema, type SignInSchemaProps } from '../schema'
 
 export function SignInForm() {
@@ -22,12 +24,23 @@ export function SignInForm() {
     resolver: zodResolver(signInSchema),
   })
 
+  const { mutate, isPending } = useSignIn({
+    reset: form.reset,
+  })
 
-  function OnSubmit({ email, password }: SignInSchemaProps) {
-    console.log(email, password)
-  }
+  const OnSubmit = useCallback(
+    ({ email, password }: SignInSchemaProps) => {
+      toast.loading('Entrando na sua conta', {
+        id: 'sign-in',
+      })
 
-  const isPending = false
+      mutate({
+        email,
+        password,
+      })
+    },
+    [mutate],
+  )
 
   return (
     <Form {...form}>
@@ -40,13 +53,13 @@ export function SignInForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className='text-muted-foreground'>E-mail</FormLabel>
+              <FormLabel className="text-muted-foreground">E-mail</FormLabel>
               <FormControl>
                 <Input
                   {...field}
                   type="email"
                   placeholder="Seu email cadastrado"
-                  className='h-10 shadow-none text-[#3D3D3D]'
+                  className="h-10 shadow-none text-[#3D3D3D]"
                 />
               </FormControl>
               <FormMessage />
@@ -59,13 +72,13 @@ export function SignInForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className='text-muted-foreground'>Senha</FormLabel>
+              <FormLabel className="text-muted-foreground">Senha</FormLabel>
               <FormControl>
                 <div className="relative">
                   <Input
                     {...field}
                     type={inputType}
-                    className='h-10 shadow-none text-[#3D3D3D]'
+                    className="h-10 shadow-none text-[#3D3D3D]"
                     placeholder="Sua senha de acesso"
                   />
                   <Button
@@ -96,7 +109,10 @@ export function SignInForm() {
             </FormItem>
           )}
         />
-        <Button size={'lg'} className="mt-5 h-14 justify-between w-full bg-rose-500 text-base font-normal">
+        <Button
+          size={'lg'}
+          className="mt-5 h-14 justify-between w-full bg-rose-500 text-base font-normal"
+        >
           {isPending ? (
             <>
               Acessando...
