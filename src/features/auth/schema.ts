@@ -1,4 +1,4 @@
-import z from "zod"
+import z from 'zod'
 
 const passwordSchema = z
   .string({ message: 'Por favor preencha esse campo' })
@@ -21,20 +21,19 @@ export const signInSchema = z.object({
   password: z.string({ message: 'Por favor preencha esse campo' }),
 })
 
-export const signUpSchema = z
-  .object({
-    name: z
-      .string({ message: 'Por favor preencha esse campo' })
-      .min(3, { message: 'Nome deve ter pelo menos 3 caracteres' })
-      .max(100, { message: 'Nome deve ter no máximo 100 caracteres' }),
-    email: z
-      .string({ message: 'Por favor preencha esse campo' })
-      .email({ message: 'Formato de email inválido' })
-      .min(5, { message: 'Email deve ter pelo menos 5 caracteres' })
-      .max(100, { message: 'Email deve ter no máximo 100 caracteres' }),
-    password: passwordSchema,
-    confirmPassword: passwordSchema,
-  })
+export const signUpSchema = z.object({
+  name: z
+    .string({ message: 'Por favor preencha esse campo' })
+    .min(3, { message: 'Nome deve ter pelo menos 3 caracteres' })
+    .max(100, { message: 'Nome deve ter no máximo 100 caracteres' }),
+  email: z
+    .string({ message: 'Por favor preencha esse campo' })
+    .email({ message: 'Formato de email inválido' })
+    .min(5, { message: 'Email deve ter pelo menos 5 caracteres' })
+    .max(100, { message: 'Email deve ter no máximo 100 caracteres' }),
+  password: passwordSchema,
+  confirmPassword: passwordSchema,
+})
 
 export type SignUpSchemaProps = z.infer<typeof signUpSchema>
 export type SignInSchemaProps = z.infer<typeof signInSchema>

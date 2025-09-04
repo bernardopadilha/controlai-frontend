@@ -1,19 +1,17 @@
-import AuthLayout from "@/layouts/auth-layout";
-import RootLayout from "@/layouts/root-layout";
-import SignInPage from "@/pages/auth/sign-in-page";
-import SignUpPage from "@/pages/auth/sign-up-page";
-import CategoriesPage from "@/pages/dashboard/categories-page";
-import DashboardPage from "@/pages/dashboard/dashboard-page";
-import ExpensesPage from "@/pages/dashboard/expenses-page";
-import NotFoundPage from "@/pages/not-found-page";
-import { createBrowserRouter } from "react-router-dom";
+import AuthLayout from '@/layouts/auth-layout'
+import RootLayout from '@/layouts/root-layout'
+import SignInPage from '@/pages/auth/sign-in-page'
+import SignUpPage from '@/pages/auth/sign-up-page'
+import CategoriesPage from '@/pages/dashboard/categories-page'
+import DashboardPage from '@/pages/dashboard/dashboard-page'
+import ExpensesPage from '@/pages/dashboard/expenses-page'
+import NotFoundPage from '@/pages/not-found-page'
+import { createBrowserRouter } from 'react-router-dom'
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-        <RootLayout />
-    ),
+    element: <RootLayout />,
     children: [
       {
         path: '/',
@@ -31,9 +29,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: (
-        <AuthLayout />
-    ),
+    element: <AuthLayout />,
     children: [
       {
         path: '/sign-in',
@@ -47,6 +43,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <NotFoundPage />
-  }
+    element: <NotFoundPage />,
+  },
 ])

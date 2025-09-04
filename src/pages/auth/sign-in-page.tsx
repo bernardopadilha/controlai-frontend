@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { SignInForm } from "@/features/auth/components/sign-in-form";
-import { MoveRightIcon } from 'lucide-react';
-import { Link } from "react-router-dom";
+import { Button } from '@/components/ui/button'
+import { SignInForm } from '@/features/auth/components/sign-in-form'
+import { MoveRightIcon } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function SignInPage() {
   return (
@@ -11,22 +11,27 @@ export default function SignInPage() {
           <h1 className="text-2xl text-foreground font-semibold">
             Acesse sua conta
           </h1>
-          <p className="mt-2 text-muted-foreground">Informe seu e-mail e senha para entrar</p>
+          <p className="mt-2 text-muted-foreground">
+            Informe seu e-mail e senha para entrar
+          </p>
 
           <SignInForm />
         </div>
 
         <div className="flex flex-col gap-5">
-          <Link to={'/sign-up'} className="hover:underline text-muted-foreground">
+          <Link
+            to={'/sign-up'}
+            className="hover:underline text-muted-foreground"
+          >
             Ainda não tem uma conta?
           </Link>
 
-          <Button 
-              size={'lg'} 
-              variant={'outline'} 
-              className="border border-rose-500 bg-transparent justify-between h-14 text-base font-normal text-rose-500 hover:bg-rose-50/20 hover:text-rose-500" 
-              asChild
-            >
+          <Button
+            size={'lg'}
+            variant={'outline'}
+            className="border border-rose-500 bg-transparent justify-between h-14 text-base font-normal text-rose-500 hover:bg-rose-50/20 hover:text-rose-500"
+            asChild
+          >
             <Link to={'/sign-up'}>
               Cadastrar
               <MoveRightIcon className="size-5" />

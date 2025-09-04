@@ -1,12 +1,19 @@
-import { cn } from "@/_config/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { EyeIcon, EyeOffIcon, Loader2Icon, MoveRight } from "lucide-react"
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import { type SignUpSchemaProps, signUpSchema } from "../schema"
+import { cn } from '@/_config/lib/utils'
+import { Button } from '@/components/ui/button'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { EyeIcon, EyeOffIcon, Loader2Icon, MoveRight } from 'lucide-react'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { type SignUpSchemaProps, signUpSchema } from '../schema'
 
 export function SignUpForm() {
   const [inputType, setInputType] = useState<'text' | 'password'>('password')
@@ -32,13 +39,13 @@ export function SignUpForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className='text-muted-foreground'>Nome</FormLabel>
+              <FormLabel className="text-muted-foreground">Nome</FormLabel>
               <FormControl>
                 <Input
                   {...field}
                   type="text"
                   placeholder="Seu email cadastrado"
-                  className='h-10 shadow-none text-[#3D3D3D]'
+                  className="h-10 shadow-none text-[#3D3D3D]"
                 />
               </FormControl>
               <FormMessage />
@@ -51,13 +58,13 @@ export function SignUpForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className='text-muted-foreground'>E-mail</FormLabel>
+              <FormLabel className="text-muted-foreground">E-mail</FormLabel>
               <FormControl>
                 <Input
                   {...field}
                   type="email"
                   placeholder="Seu email cadastrado"
-                  className='h-10 shadow-none text-[#3D3D3D]'
+                  className="h-10 shadow-none text-[#3D3D3D]"
                 />
               </FormControl>
               <FormMessage />
@@ -70,14 +77,14 @@ export function SignUpForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className='text-muted-foreground'>Senha</FormLabel>
+              <FormLabel className="text-muted-foreground">Senha</FormLabel>
               <FormControl>
                 <div className="relative">
                   <Input
                     {...field}
                     type={inputType}
                     placeholder="Sua senha de acesso"
-                    className='h-10 shadow-none text-[#3D3D3D]'
+                    className="h-10 shadow-none text-[#3D3D3D]"
                   />
                   <Button
                     type="button"
@@ -113,14 +120,16 @@ export function SignUpForm() {
           name="confirmPassword"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className='text-muted-foreground'>Confirmar senha</FormLabel>
+              <FormLabel className="text-muted-foreground">
+                Confirmar senha
+              </FormLabel>
               <FormControl>
                 <div className="relative">
                   <Input
                     {...field}
                     type={inputType}
                     placeholder="Sua senha de acesso"
-                    className='h-10 shadow-none text-[#3D3D3D]'
+                    className="h-10 shadow-none text-[#3D3D3D]"
                   />
                   <Button
                     type="button"
@@ -151,7 +160,10 @@ export function SignUpForm() {
           )}
         />
 
-        <Button size={'lg'} className="h-14 justify-between w-full bg-rose-500 text-base font-normal">
+        <Button
+          size={'lg'}
+          className="h-14 justify-between w-full bg-rose-500 text-base font-normal"
+        >
           {isPending ? (
             <>
               Cadastrando...
