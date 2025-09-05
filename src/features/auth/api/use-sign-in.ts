@@ -1,4 +1,5 @@
 import { api } from '@/_config/lib/axios'
+import { useUser } from '@/context/user-context'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import Cookies from 'js-cookie'
 import type { UseFormReset } from 'react-hook-form'
@@ -10,6 +11,7 @@ export function useSignIn({
 }: {
   reset: UseFormReset<SignInSchemaProps>
 }) {
+  const { setNewUser } = useUser()
   const queryClient = useQueryClient()
 
   const mutation = useMutation({
@@ -28,11 +30,12 @@ export function useSignIn({
 
       return response.data
     },
-    onSuccess: () => {
+    onSuccess: async () => {
       toast.success('Login efetuado com sucesso', {
         id: 'sign-in',
       })
-      queryClient.invalidateQueries({ queryKey: ['verify-login'] })
+      await queryClient.invalidateQueries({ queryKey: ['verify-login'] })
+      setNewUser()
       reset({
         email: '',
         password: '',
