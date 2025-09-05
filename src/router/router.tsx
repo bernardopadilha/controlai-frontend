@@ -7,11 +7,16 @@ import DashboardPage from '@/pages/dashboard/dashboard-page'
 import ExpensesPage from '@/pages/dashboard/expenses-page'
 import NotFoundPage from '@/pages/not-found-page'
 import { createBrowserRouter } from 'react-router-dom'
+import { ProtectRoute } from './middleware/protect-route'
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootLayout />,
+    element: (
+      <ProtectRoute isProtected>
+        <RootLayout />
+      </ProtectRoute>
+    ),
     children: [
       {
         path: '/',
@@ -29,7 +34,11 @@ export const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <AuthLayout />,
+    element: (
+      <ProtectRoute>
+        <AuthLayout />
+      </ProtectRoute>
+    ),
     children: [
       {
         path: '/sign-in',
