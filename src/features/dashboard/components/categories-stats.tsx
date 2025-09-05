@@ -1,4 +1,4 @@
-import { formatFn } from '@/_config/lib/helpers'
+import { currencyFormatFn } from '@/_config/lib/helpers'
 import { SkeletonWrapper } from '@/components/skeleton-wrapper'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
@@ -58,7 +58,7 @@ export function CategoriesStats({ to, from }: Props) {
                           </span>
 
                           <span className="text-sm text-gray-400">
-                            {formatFn(amount)}
+                            {currencyFormatFn(amount)}
                           </span>
                         </div>
                         <Progress

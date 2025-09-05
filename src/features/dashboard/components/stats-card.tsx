@@ -1,4 +1,4 @@
-import { formatFn } from '@/_config/lib/helpers'
+import { currencyFormatFn } from '@/_config/lib/helpers'
 import { SkeletonWrapper } from '@/components/skeleton-wrapper'
 import { Card } from '@/components/ui/card'
 import { UseGetTotalExpenses } from '@/features/expense/api/use-get-total-expenses'
@@ -51,7 +51,7 @@ function StatCard({ icon, title, value }: StatCardProps) {
           redraw={false}
           end={value}
           decimals={2}
-          formattingFn={formatFn}
+          formattingFn={currencyFormatFn}
           className="text-2xl"
         />
       </div>

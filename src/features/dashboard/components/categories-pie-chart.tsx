@@ -1,6 +1,6 @@
 import { Cell, Label, Pie, PieChart } from 'recharts'
 
-import { formatFn } from '@/_config/lib/helpers'
+import { currencyFormatFn } from '@/_config/lib/helpers'
 import { cn } from '@/_config/lib/utils'
 import { SkeletonWrapper } from '@/components/skeleton-wrapper'
 import {
@@ -113,7 +113,7 @@ export function CategoriesPieChart({ to, from }: Props) {
                             y={viewBox.cy}
                             className="fill-foreground text-xl font-bold"
                           >
-                            {formatFn(totalExpenses)}
+                            {currencyFormatFn(totalExpenses)}
                           </tspan>
                           <tspan
                             x={viewBox.cx}
@@ -139,7 +139,7 @@ export function CategoriesPieChart({ to, from }: Props) {
 function CustomTooltip({ active, payload }: any) {
   if (!active || !payload || payload.length === 0) return null
 
-  const data = payload[0].payload // objeto original (category, expense, fill, etc.)
+  const data = payload[0].payload
   const amount = data.expense
   const label = data.category
   const color = data.fill
@@ -156,7 +156,7 @@ function CustomTooltip({ active, payload }: any) {
               preserveValue
               end={amount}
               decimals={0}
-              formattingFn={formatFn}
+              formattingFn={currencyFormatFn}
               className="text-sm"
             />
           </div>

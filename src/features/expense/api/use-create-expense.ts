@@ -38,7 +38,7 @@ export function useCreateExpense({
 
       // Invalida o overView para recarregar as despesas
       queryClient.invalidateQueries({
-        queryKey: ['overview', 'expenses'],
+        queryKey: ['overview', 'expenses', 'history'],
       })
 
       setOpen((prev) => !prev)
