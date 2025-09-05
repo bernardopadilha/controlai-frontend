@@ -59,7 +59,7 @@ export function SignInForm() {
                   {...field}
                   type="email"
                   placeholder="Seu email cadastrado"
-                  className="h-10 shadow-none text-[#3D3D3D]"
+                  className="h-10 shadow-none text-[#3D3D3D] border-[#e4e4e7] focus-visible:border-rose-500"
                 />
               </FormControl>
               <FormMessage />
@@ -78,7 +78,7 @@ export function SignInForm() {
                   <Input
                     {...field}
                     type={inputType}
-                    className="h-10 shadow-none text-[#3D3D3D]"
+                    className="h-10 shadow-none text-[#3D3D3D] border-[#e4e4e7] focus-visible:border-rose-500"
                     placeholder="Sua senha de acesso"
                   />
                   <Button
@@ -111,7 +111,7 @@ export function SignInForm() {
         />
         <Button
           size={'lg'}
-          className="mt-5 h-14 justify-between w-full bg-rose-500 text-base font-normal"
+          className="mt-5 h-14 justify-between w-full text-white bg-rose-500 text-base font-normal"
         >
           {isPending ? (
             <>

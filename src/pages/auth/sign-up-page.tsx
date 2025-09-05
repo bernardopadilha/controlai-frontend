@@ -13,7 +13,7 @@ export default function SignUpPage() {
             <div className="mb-10 block lg:hidden">
               <Logo />
             </div>
-            <h1 className="text-2xl text-foreground font-semibold">
+            <h1 className="text-2xl text-[#09090b] font-semibold">
               Crie sua conta
             </h1>
             <p className="mt-2 text-muted-foreground">
@@ -34,7 +34,7 @@ export default function SignUpPage() {
             <Button
               size={'lg'}
               variant={'outline'}
-              className="border border-rose-500 bg-transparent justify-between h-14 text-base font-normal text-rose-500 hover:bg-rose-50/20 hover:text-rose-500"
+              className="border border-rose-500! bg-transparent! justify-between h-14 text-base font-normal text-rose-500 hover:bg-rose-50/50! hover:text-rose-500!"
               asChild
             >
               <Link to={'/sign-in'}>

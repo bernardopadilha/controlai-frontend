@@ -61,7 +61,7 @@ export function SignUpForm() {
                   {...field}
                   type="text"
                   placeholder="Seu email cadastrado"
-                  className="h-10 shadow-none text-[#3D3D3D]"
+                  className="h-10 shadow-none text-[#3D3D3D] border-[#e4e4e7] focus-visible:border-rose-500"
                 />
               </FormControl>
               <FormMessage />
@@ -80,7 +80,7 @@ export function SignUpForm() {
                   {...field}
                   type="email"
                   placeholder="Seu email cadastrado"
-                  className="h-10 shadow-none text-[#3D3D3D]"
+                  className="h-10 shadow-none text-[#3D3D3D] border-[#e4e4e7] focus-visible:border-rose-500"
                 />
               </FormControl>
               <FormMessage />
@@ -100,7 +100,7 @@ export function SignUpForm() {
                     {...field}
                     type={inputType}
                     placeholder="Sua senha de acesso"
-                    className="h-10 shadow-none text-[#3D3D3D]"
+                    className="h-10 shadow-none text-[#3D3D3D] border-[#e4e4e7] focus-visible:border-rose-500"
                   />
                   <Button
                     type="button"
@@ -145,7 +145,7 @@ export function SignUpForm() {
                     {...field}
                     type={inputType}
                     placeholder="Sua senha de acesso"
-                    className="h-10 shadow-none text-[#3D3D3D]"
+                    className="h-10 shadow-none text-[#3D3D3D] border-[#e4e4e7] focus-visible:border-rose-500"
                   />
                   <Button
                     type="button"
@@ -178,7 +178,7 @@ export function SignUpForm() {
 
         <Button
           size={'lg'}
-          className="h-14 justify-between w-full bg-rose-500 text-base font-normal"
+          className="h-14 justify-between w-full text-white bg-rose-500 text-base font-normal"
         >
           {isPending ? (
             <>
