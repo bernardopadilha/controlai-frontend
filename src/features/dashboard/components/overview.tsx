@@ -6,8 +6,6 @@ import { toast } from 'sonner'
 import { CategoriesPieChart } from './categories-pie-chart'
 import { CategoriesStats } from './categories-stats'
 import { StatsCards } from './stats-card'
-// import { CategoriesStats } from './categories-stats'
-// import { StatsCards } from './stats-cards'
 
 export function Overview() {
   const [dateRange, setDateRange] = useState<{ from: Date; to: Date }>({

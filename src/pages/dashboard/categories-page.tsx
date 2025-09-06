@@ -74,7 +74,7 @@ function CategoryList() {
         </CardHeader>
         <Separator />
         {!dataAvailable && (
-          <div className="flex h-40 w-full items-center justify-center">
+          <div className="flex flex-col h-40 w-full items-center justify-center">
             <p>Nenhuma categoria encontrada</p>
 
             <p className="text-sm text-muted-foreground">

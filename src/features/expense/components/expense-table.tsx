@@ -203,7 +203,7 @@ export function ExpenseTable({ to, from }: Props) {
                     colSpan={columns.length}
                     className="h-24 text-center"
                   >
-                    No results.
+                    Não encontramos despesas neste período.
                   </TableCell>
                 </TableRow>
               )}

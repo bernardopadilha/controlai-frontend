@@ -85,57 +85,67 @@ export function CategoriesPieChart({ to, from }: Props) {
           </CardTitle>
         </CardHeader>
         <CardContent className="flex-1">
-          <ChartContainer
-            config={chartConfig}
-            className="mx-auto aspect-square max-h-[240px]"
-          >
-            <PieChart>
-              <ChartTooltip
-                cursor={false}
-                content={<CustomTooltip />}
-              />
-              <Pie
-                data={chartData}
-                dataKey="expense"
-                nameKey="category"
-                innerRadius={70}
-                strokeWidth={5}
-              >
-                {chartData.map((_, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-                <Label
-                  content={({ viewBox }) => {
-                    if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
-                      return (
-                        <text
-                          x={viewBox.cx}
-                          y={viewBox.cy}
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                        >
-                          <tspan
+          {data?.length === 0 && (
+            <div className="flex h-60 w-full flex-col items-center justify-center">
+              Sem despesas cadastradas neste período
+              <p className="text-sm text-muted-foreground">
+                Tente selecionar outro período, ou tente criar uma nova despesa
+              </p>
+            </div>
+          )}
+          {data && data.length > 0 && (
+            <ChartContainer
+              config={chartConfig}
+              className="mx-auto aspect-square max-h-[240px]"
+            >
+              <PieChart>
+                <ChartTooltip
+                  cursor={false}
+                  content={<CustomTooltip />}
+                />
+                <Pie
+                  data={chartData}
+                  dataKey="expense"
+                  nameKey="category"
+                  innerRadius={70}
+                  strokeWidth={5}
+                >
+                  {chartData.map((_, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                  <Label
+                    content={({ viewBox }) => {
+                      if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
+                        return (
+                          <text
                             x={viewBox.cx}
                             y={viewBox.cy}
-                            className="fill-foreground text-xl font-bold"
+                            textAnchor="middle"
+                            dominantBaseline="middle"
                           >
-                            {currencyFormatFn(totalExpenses)}
-                          </tspan>
-                          <tspan
-                            x={viewBox.cx}
-                            y={(viewBox.cy || 0) + 24}
-                            className="fill-muted-foreground text-xs"
-                          >
-                            Despesas
-                          </tspan>
-                        </text>
-                      )
-                    }
-                  }}
-                />
-              </Pie>
-            </PieChart>
-          </ChartContainer>
+                            <tspan
+                              x={viewBox.cx}
+                              y={viewBox.cy}
+                              className="fill-foreground text-xl font-bold"
+                            >
+                              {currencyFormatFn(totalExpenses)}
+                            </tspan>
+                            <tspan
+                              x={viewBox.cx}
+                              y={(viewBox.cy || 0) + 24}
+                              className="fill-muted-foreground text-xs"
+                            >
+                              Despesas
+                            </tspan>
+                          </text>
+                        )
+                      }
+                    }}
+                  />
+                </Pie>
+              </PieChart>
+            </ChartContainer>
+          )}
         </CardContent>
       </Card>
     </SkeletonWrapper>
