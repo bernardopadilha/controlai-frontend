@@ -49,7 +49,13 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-const COLORS = ["#FF88A6", "#ec3966", "#61182a", "#D51645", "#8D0023"]
+const COLORS = [
+  "#BE123C", // rose-700
+  "#FB7185", // rose-400
+  "#E11D48", // rose-600
+  "#FDA4AF", // rose-300
+  "#F43F5E", // rose-500
+]
 
 export function CategoriesPieChart({ to, from }: Props) {
   const { data, isFetching } = useGetExpensePerCategory({

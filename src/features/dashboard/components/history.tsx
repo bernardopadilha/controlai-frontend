@@ -53,8 +53,8 @@ export function History() {
                 className="flex items-center gap-2 text-sm"
               >
                 <span className="relative flex size-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
-                  <span className="relative inline-flex size-2 rounded-full bg-red-500"></span>
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75"></span>
+                  <span className="relative inline-flex size-2 rounded-full bg-rose-500"></span>
                 </span>
                 Despesas
               </Badge>
@@ -74,12 +74,12 @@ export function History() {
                     <linearGradient id="expenseBar" x1="0" y1="0" x2="0" y2="1">
                       <stop
                         offset={'0'}
-                        stopColor="#ef4444"
+                        stopColor="#F43F5E"
                         stopOpacity={'1'}
                       />
                       <stop
                         offset={'1'}
-                        stopColor="#ef4444"
+                        stopColor="#F43F5E"
                         stopOpacity={'0'}
                       />
                     </linearGradient>
@@ -155,8 +155,8 @@ function CustomTooltip({ active, payload }: any) {
       <TooltipRow
         label="Despesas"
         value={expense}
-        bgColor="bg-red-500"
-        textColor="text-red-500"
+        bgColor="bg-rose-500"
+        textColor="text-rose-500"
       />
     </div>
   )

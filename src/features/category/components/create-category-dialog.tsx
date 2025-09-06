@@ -84,7 +84,7 @@ export function CreateCategoryDialog({
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            Crie uma nova <span className='text-red-500'>Categoria</span>
+            Crie uma nova <span className='text-rose-500'>Categoria</span>
           </DialogTitle>
           <DialogDescription>
             As categorias são usadas para agrupar suas transações

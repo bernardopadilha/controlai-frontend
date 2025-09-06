@@ -63,7 +63,7 @@ export function CategoriesStats({ to, from }: Props) {
                         </div>
                         <Progress
                           value={percentage}
-                          indicator={'bg-red-500'}
+                          indicator={'bg-rose-500'}
                         />
                       </div>
                     )

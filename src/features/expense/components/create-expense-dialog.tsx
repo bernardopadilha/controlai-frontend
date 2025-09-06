@@ -82,7 +82,7 @@ export function CreateExpenseDialog({ trigger }: Props) {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            Crie uma nova <span className='text-red-500'>despesa</span>
+            Crie uma nova <span className='text-rose-500'>despesa</span>
           </DialogTitle>
         </DialogHeader>
 
