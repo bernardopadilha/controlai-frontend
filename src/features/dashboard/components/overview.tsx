@@ -43,7 +43,7 @@ export function Overview() {
 
       <div className="container flex w-full flex-col gap-2">
         <StatsCards from={dateRange.from} to={dateRange.to} />
-        <div className="flex items-center gap-5">
+        <div className="flex flex-col sm:flex-row items-center gap-5">
           <CategoriesStats from={dateRange.from} to={dateRange.to} />
           <CategoriesPieChart from={dateRange.from} to={dateRange.to} />
         </div>
