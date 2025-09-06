@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { api } from '@/_config/lib/axios'
 import { currencyFormatFn } from '@/_config/lib/helpers'
 import { cn } from '@/_config/lib/utils'
 import { SkeletonWrapper } from '@/components/skeleton-wrapper'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import CountUp from 'react-countup'
 import {
@@ -17,6 +15,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
+import { UseGetHistoryData } from '../api/use-get-history-data'
 import type { Period } from '../types'
 import { HistoryPeriodSelector } from './history-period-selector'
 
@@ -27,14 +26,9 @@ export function History() {
     year: new Date().getFullYear(),
   })
 
-  const historyDataQuery = useQuery({
-    queryKey: ['overview', 'history', timeFrame, period],
-    queryFn: async () => {
-      const { data } = await api.get(
-        `/expenses/history?timeframe=${timeFrame}&year=${period.year}&month=${period.month}`,
-      )
-      return data
-    },
+  const historyDataQuery = UseGetHistoryData({
+    period,
+    timeFrame,
   })
 
   const dataAvailable =
@@ -122,7 +116,7 @@ export function History() {
                   />
                   <Bar
                     dataKey={'expense'}
-                    label="Expense"
+                    label="Despesas"
                     fill="url(#expenseBar)"
                     radius={4}
                     className="cursor-pointer"
@@ -159,7 +153,7 @@ function CustomTooltip({ active, payload }: any) {
   return (
     <div className="min-w-[300px] rounded border bg-background p-4">
       <TooltipRow
-        label="Expense"
+        label="Despesas"
         value={expense}
         bgColor="bg-red-500"
         textColor="text-red-500"

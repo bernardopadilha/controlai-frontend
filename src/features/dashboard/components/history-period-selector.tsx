@@ -1,4 +1,3 @@
-import { api } from '@/_config/lib/axios'
 import { SkeletonWrapper } from '@/components/skeleton-wrapper'
 import {
   Select,
@@ -8,7 +7,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { useQuery } from '@tanstack/react-query'
+import { useGetHistoryPeriods } from '../api/use-get-history-periods'
 import type { Period } from '../types'
 
 interface Props {
@@ -24,13 +23,7 @@ export function HistoryPeriodSelector({
   timeFrame,
   setTimeFrame,
 }: Props) {
-  const historyPeriods = useQuery<number[] | []>({
-    queryKey: ['overview', 'history', 'periods'],
-    queryFn: async () => {
-      const { data } = await api.get(`/expenses/history/periods`)
-      return data
-    },
-  })
+  const historyPeriods = useGetHistoryPeriods()
 
   return (
     <div className="flex flex-wrap items-center gap-4">
@@ -58,7 +51,7 @@ export function HistoryPeriodSelector({
           />
         </SkeletonWrapper>
         {timeFrame === 'month' && (
-          <SkeletonWrapper isLoading={historyPeriods.isFetching}>
+          <SkeletonWrapper isLoading={historyPeriods.isFetching} fullWidth={false}>
             <MonthSelector period={period} setPeriod={setPeriod} />
           </SkeletonWrapper>
         )}
