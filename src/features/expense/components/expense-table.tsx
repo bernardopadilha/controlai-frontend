@@ -103,7 +103,7 @@ const columns: ColumnDef<ExpenseHistoryRow>[] = [
   },
 ]
 
-export default function TransactionTable({ to, from }: Props) {
+export function ExpenseTable({ to, from }: Props) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
 

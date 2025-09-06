@@ -1,11 +1,11 @@
 import { MAX_DATE_RANGE_DAYS } from '@/_config/lib/constants'
 import { DateRangePicker } from '@/components/ui/date-range-picker'
-import TransactionTable from '@/features/expense/components/expense-table'
+import { ExpenseTable } from '@/features/expense/components/expense-table'
 import { differenceInDays, startOfMonth } from 'date-fns'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
-export default function TransactionsPage() {
+export default function ExpensesPage() {
   const [dateRange, setDateRange] = useState<{ from: Date; to: Date }>({
     from: startOfMonth(new Date()),
     to: new Date(),
@@ -40,7 +40,7 @@ export default function TransactionsPage() {
       </div>
 
       <div className="container flex flex-col gap-4 p-4">
-        <TransactionTable from={dateRange.from} to={dateRange.to} />
+        <ExpenseTable from={dateRange.from} to={dateRange.to} />
       </div>
     </div>
   )

@@ -40,7 +40,7 @@ export default function DeleteExpenseDialog({
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
           <AlertDialogAction
             onClick={() => {
-              toast.loading('Deleting transaction', {
+              toast.loading('Excluindo despesa', {
                 id: expenseId,
               })
               deleteMutation.mutate()

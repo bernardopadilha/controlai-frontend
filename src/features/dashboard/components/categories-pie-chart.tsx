@@ -50,11 +50,11 @@ const chartConfig = {
 } satisfies ChartConfig
 
 const COLORS = [
+  "#F43F5E", // rose-500
+  "#FDA4AF", // rose-300
   "#BE123C", // rose-700
   "#FB7185", // rose-400
   "#E11D48", // rose-600
-  "#FDA4AF", // rose-300
-  "#F43F5E", // rose-500
 ]
 
 export function CategoriesPieChart({ to, from }: Props) {
