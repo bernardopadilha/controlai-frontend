@@ -1,14 +1,19 @@
 import { Button } from '@/components/ui/button'
+import { useUser } from '@/context/user-context'
 import { History } from '@/features/dashboard/components/history'
 import { Overview } from '@/features/dashboard/components/overview'
 import { CreateExpenseDialog } from '@/features/expense/components/create-expense-dialog'
 
 export default function DashboardPage() {
+  const { user } = useUser()
+
   return (
     <div className="bg-background flex flex-col items-center pb-10">
       <div className="w-full flex justify-center border-b bg-card">
         <div className="container w-full flex flex-wrap items-center justify-between gap-6 py-8">
-          <p className="text-3xl font-medium">Olá, Bernardo 👋</p>
+          <p className="text-3xl font-medium">
+            Olá, {user?.name.split(' ')[0]} 👋
+          </p>
           <div className="flex items-center gap-3">
             <CreateExpenseDialog
               trigger={

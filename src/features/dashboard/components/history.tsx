@@ -113,6 +113,14 @@ export function History() {
                     fontSize={12}
                     tickLine={false}
                     axisLine={false}
+                    tickFormatter={(value) =>
+                      new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
+                      }).format(value / 100)
+                    }
                   />
                   <Bar
                     dataKey={'expense'}
