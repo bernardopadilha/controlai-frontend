@@ -1,69 +1,59 @@
-# React + TypeScript + Vite
+# 🔴 Gestão de Custos Domésticos - Front-end
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o front-end da aplicação **Gestão de Custos Domésticos**, desenvolvido em **Vite + React**.
+---
 
-Currently, two official plugins are available:
+![Tela de login](./public/print.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📂 Estrutura do Projeto
 
-## Expanding the ESLint configuration
+- **Vite + React**
+- **React Router DOM** → Controle de rotas
+- **Axios/Fetch** → Comunicação com a API
+- **React Query (TanStack Query)** → Cache e gerenciamento de dados assíncronos
+- **Context API / Hooks** → Estado global simples
+- **ShadCN + TailwindCSS** → Estilização e UI
+- **Navegação SPA** → Redireciona para `/sign-in` se não houver token
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ⚙️ Decisões Técnicas
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Vite → build mais rápido
+- React Query → gerenciamento inteligente de dados assíncronos
+- Token JWT em cookies → autenticação simples para o desafio
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🚀 Deploy
+- Front-end: Vercel **https://controlai-frontend.vercel.app/sign-in**
+- Back-end: Render **https://controlai-backend.onrender.com**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🎥 Vídeo de demonstração
+- **https://www.youtube.com/watch?v=666BvUJS5Rc**
+
+## 📚 Documentação
+- **https://controlai-backend.onrender.com/docs**
+
+---
+
+## ▶️ Como executar localmente
+
+```bash
+# 1. Clonar o repositório
+git clone <url-do-repositorio-front>
+
+# 3. Instalar dependências
+# 4. node 22 recomendado
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ▶️ Variáveis de Ambiente
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Crie um .env
+VITE_API_URL=http://localhost:3333
+VITE_ENABLE_API_DELAY=true
+```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ▶️ Executar o projeto
+
+```bash
+npm run dev
 ```
